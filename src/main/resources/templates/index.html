@@ -18,16 +18,19 @@
     <h1 class="display-5 fw-bold">debolsillocolombia</h1>
     <p>Administra tu Empresa y Empleados</p>
 
-    <div sec:authorize="!isAuthenticated()">
-        <a th:href="@{/oauth2/authorization/auth0}" type="button" class="btn btn-primary btn-lg px-5 gap-3">ingresar</a>
-    </div>
+    <!--    <div sec:authorize="!isAuthenticated()">-->
+    <!--        <a th:href="@{/oauth2/authorization/auth0}" type="button" class="btn btn-primary btn-lg px-5 gap-3">ingresar</a>-->
+    <!--    </div>-->
 
 
-    <div sec:authorize="isAuthenticated()">
-        <a href="/empleados" class="my-3 btn btn-primary btn-lg px-5 gap-3">empleados</a>
-        <a href="/empresas" class="my-3 btn btn-primary btn-lg px-5 gap-3">empresas</a>
+    <!--    <div sec:authorize="isAuthenticated()">-->
+    <!--        <a href="/empleados" class="my-3 btn btn-primary btn-lg px-5 gap-3">empleados</a>-->
+    <!--        <a href="/empresas" class="my-3 btn btn-primary btn-lg px-5 gap-3">empresas</a>-->
 
-    </div>
+    <!--    </div>-->
+    <a href="/empleados" class="my-3 btn btn-primary btn-lg px-5 gap-3">empleados</a>
+    <a href="/empresas" class="my-3 btn btn-primary btn-lg px-5 gap-3">empresas</a>
+
 
 </div>
 
