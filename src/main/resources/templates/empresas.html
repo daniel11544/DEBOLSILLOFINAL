@@ -11,6 +11,8 @@
     <title>Empresas</title>
 </head>
 
+
+
 <body>
 
 <div class="px-4 py-4 mx-5 my-5 text-center">
@@ -22,21 +24,26 @@
 <div class="px-4 py-4 mx-5 my-5 text-center">
     <div class="d-flex justify-content-center gap-3">
         <div th:each="empresas:${empresas}" class="card" style="width: 18rem;">
-            <img src="img/empresa.png" class="d-block mx-auto my-auto mb-4" height="200" alt="empresass">
+            <img src="img/empresa.png" class="img-responsive height=70 width=auto" alt="empresass">
             <div class="card-body">
+                <h6>nombre:</h6>
                 <h5 th:text="${empresas.nombre}" class="card-title"></h5>
+                <h6>direccion:</h6>
                 <p th:text="${empresas.direccion}" class="card-text"></p>
+                <h6>telefono:</h6>
                 <p th:text="${empresas.telefono}" class="card-text"></p>
+                <h6>nit:</h6>
                 <p th:text="${empresas.nit}" class="card-text"></p>
+
 
                 <div class="d-flex gap-1 justify-content-center">
                     <form th:action="@{/empresas/{id}(id=${empresas.id})}" th:method="get">
-                       <button type="submit" class="btn btn-primary">actualizar</button>
+                        <button type="submit" class="btn btn-sm btn-primary">actualizar</button>
 
                     </form>
 
                     <form th:action="@{/empresas/{id}(id=${empresas.id})}" th:method="delete">
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                        <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
                     </form>
                 </div>
 

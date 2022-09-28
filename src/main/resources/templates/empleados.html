@@ -18,26 +18,30 @@
     <h1 class="display-5 fw-bold">Empleados</h1>
     <p>informacion de los empleados registrados</p>
 </div>
+<div class="container">
+    <div class="row gap-3 my-5 text-center justify-content-center">
 
-<div class="px-4 py-4 mx-5 my-5 text-center">
-    <div class="d-flex justify-content-center gap-3">
+
         <div th:each="empleados:${empleados}" class="card" style="width: 18rem;">
-            <img src="img/empleado.png" class="d-block mx-auto my-auto mb-4" height="200" alt="empleado">
+            <img src="img/empleado.png" class="img-responsive" alt="empleado">
             <div class="card-body">
+                <h6>Nombre:</h6>
                 <h5 th:text="${empleados.nombre}" class="card-title"></h5>
-                <p th:text="${empleados.correo}" class="card-text"></p>
+                <h6>Correo:</h6>
+                <p th:text="${empleados.correo}" class="card-email"></p>
+                <h6>Empresa del empleado:</h6>
                 <p th:text="${empleados.empresaEmpleadoPertenece}" class="card-text"></p>
+                <h6>Cargo empleado:</h6>
                 <p th:text="${empleados.rolempleado}" class="card-text"></p>
-                <div class="d-flex gap-1 justify-content-center">
+                <div class="d-flex-column gap-1 justify-content-center">
                     <form th:action="@{/empleados/{id}(id=${empleados.id})}" th:method="get">
-                        <button type="submit" class="btn btn-primary">actualizar</button>
+                        <button type="submit" class="my-2 btn btn-primary">actualizar</button>
 
                     </form>
                     <form th:action="@{/empleados/{id}(id=${empleados.id})}" th:method="delete">
-                        <button type="submit" class="btn btn-primary">eliminar</button>
+                        <button type="submit" class="my-2 btn btn-danger">eliminar</button>
 
                     </form>
-
 
                 </div>
             </div>
