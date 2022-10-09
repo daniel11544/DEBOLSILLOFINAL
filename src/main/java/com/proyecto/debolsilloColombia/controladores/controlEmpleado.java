@@ -1,7 +1,6 @@
 package com.proyecto.debolsilloColombia.controladores;
 
 import com.proyecto.debolsilloColombia.entidades.Empleado;
-import com.proyecto.debolsilloColombia.entidades.Empresa;
 import com.proyecto.debolsilloColombia.servicios.servicioEmpleado;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,9 +32,10 @@ public class controlEmpleado{
     }
 
     @PostMapping("/empleados")
-    public Empleado nuevoEmpleado(@ModelAttribute Empleado m, Model model){
+    public RedirectView nuevoEmpleado(@ModelAttribute Empleado m, Model model){
         model.addAttribute ( m );
-        return this.se20.nuevaEmpleado ( m );
+       this.se20.nuevaEmpleado ( m );
+        return new RedirectView ("/empleados");
     }
 
     @GetMapping("/empleados/{id}")

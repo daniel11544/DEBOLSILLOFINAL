@@ -1,119 +1,93 @@
 <!doctype html>
 <html lang="en" xmlns:th="http:/www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-  <title>Actualizar empresa</title>
+    <title>Actualizar empresa</title>
 </head>
 <header>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container-fluid">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-info">
+            <div class="container-fluid">
 
-        <a class="navbar-brand" href="/">
-          <img src="/img/descarga.png" alt="Bootstrap" width="30" height="auto">
-        </a>
-      </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-              aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/empresas">Empresas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/empleados">Empleados</a>
-          </li>
 
-        </ul>
+            </div>
 
-      </div>
-  </div>
-  </nav>
-  </div>
+            <a class="text-light navbar-brand" href="/">
+                DeBolsilloColombia
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="text-light nav-link active" aria-current="page" href="/empresas">Empresas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-light nav-link active" aria-current="page" href="/empleados">Empleados</a>
+                    </li>
+
+                </ul>
+
+            </div>
+    </div>
+    </nav>
+    </div>
 </header>
-
-<header>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container-fluid">
-
-        <a class="navbar-brand" href="/">
-          <img src="/img/descarga.png" alt="Bootstrap" width="30" height="auto">
-        </a>
-      </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-              aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/empresas">Empresas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/empleados">Empleados</a>
-          </li>
-
-        </ul>
-
-      </div>
-  </div>
-  </nav>
-  </div>
-</header>
-
 <body>
 <main>
-  <div class="px-4 py-3 my-2 text-center">
-    <h1 class="display-5 fw-bold mb-5">Actualizar empresa</h1>
-    <div th:each="empresaFind : ${empresaFind}" class="col-lg-5 mx-auto">
-      <form th:action="@{/empresas/{id}(id=${empresaFind.id})}" th:method="put"  class="d-flex flex-column gap-3 align-items-center">
-        <div class="d-flex gap-1 justify-content-left">
-          <label class="display-8 fw-bold mb-1">Documento:</label>
-          <input th:field="*{empresaFind.id}" class="form-control" type="number" placeholder="id" disabled="true"/>
+    <div class="px-4 py-3 my-2 text-center">
+        <h1 class="display-5 fw-bold mb-5">Actualizar empresa</h1>
+        <div th:each="empresaFind : ${empresaFind}" class="col-lg-5 mx-auto">
+            <form th:action="@{/empresas/{id}(id=${empresaFind.id})}" th:method="put"
+                  class="d-flex flex-column gap-3 align-items-center">
+                <div class="d-flex gap-1 justify-content-left">
+                    <label class="display-8 fw-bold mb-1">Documento:</label>
+                    <input th:field="*{empresaFind.id}" class="form-control" type="number" placeholder="id"
+                           disabled="true"/>
+                </div>
+                <input th:field="*{empresaFind.nombre}" class="form-control" type="text" placeholder="Nombre completo"/>
+                <input th:field="*{empresaFind.direccion}" class="form-control" type="text" placeholder="direccion"/>
+                <input th:field="*{empresaFind.telefono}" class="form-control" type="tel" placeholder="Teléfono"/>
+                <input th:field="*{empresaFind.nit}" class="form-control" type="text" placeholder="nit"/>
+                <button class="btn btn-primary  px-4 gap-3" type="submit">Actualizar empresa</button>
+                <a href="/empresas" class="btn btn-outline-secondary px-4 gap-3" type="submit">Cancelar</a>
+            </form>
+
         </div>
-        <input th:field="*{empresaFind.nombre}" class="form-control"  type="text" placeholder="Nombre completo" />
-        <input th:field="*{empresaFind.direccion}" class="form-control"  type="text" placeholder="direccion" />
-        <input th:field="*{empresaFind.telefono}" class="form-control"  type="tel" placeholder="Teléfono" />
-        <input th:field="*{empresaFind.nit}" class="form-control"  type="text" placeholder="nit" />
-         <button class="btn btn-primary  px-4 gap-3"  type="submit">Actualizar empresa</button>
-        <a href="/empresas" class="btn btn-outline-secondary px-4 gap-3"  type="submit">Cancelar</a>
-      </form>
+
 
     </div>
 
 
-
-  </div>
-
-
 </main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
 </body>
 
 <footer class="text-center text-white" style="background-color: #f1f1f1;">
 
-  <div class="container pt-4">
+    <div class="container pt-4">
 
-    <section class="mb-4">
-      <a class="btn btn-link btn-floating btn-lg text-dark m-1"
-         href="https://github.com/daniel11544/DEBOLSILLOFINAL" role="button"
-         data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
-    </section>
-  </div>
-  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2022 Copyright: DANIEL STEBAN GUARIN
+        <section class="mb-4">
+            <a class="btn btn-link btn-floating btn-lg text-dark m-1"
+               href="https://github.com/daniel11544/DEBOLSILLOFINAL" role="button"
+               data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+        </section>
+    </div>
+    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright: DANIEL STEBAN GUARIN
 
-  </div>
+    </div>
 
 </footer>
 

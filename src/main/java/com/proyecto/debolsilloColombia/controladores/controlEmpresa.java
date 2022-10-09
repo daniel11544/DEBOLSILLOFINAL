@@ -21,60 +21,46 @@ public class controlEmpresa{
 
 
     @GetMapping("/empresas")
-    public String empresas(Model modelP){
+    public String empresas (Model modelP) {
         List<Empresa> empresas = this.se10.getListaEmpresas ();
-        modelP.addAttribute("empresas", empresas);
+        modelP.addAttribute ( "empresas" , empresas );
         return "empresas";
     }
 
     @GetMapping("nuevaempresa")
-    public String crearEmpresa(Model model){
-        model.addAttribute("empresa", new Empresa());
+    public String crearEmpresa (Model model) {
+        model.addAttribute ( "empresa" , new Empresa () );
         return "nuevaempresa";
     }
 
-@PostMapping("/empresas")
-public Empresa nuevaEmpresa(@ModelAttribute Empresa e, Model model){
+    @PostMapping("/empresas")
+    public RedirectView nuevaEmpresa (@ModelAttribute Empresa e , Model model) {
         model.addAttribute ( e );
-        return this.se10.nuevaEmpresa ( e );
-}
+        this.se10.nuevaEmpresa ( e );
+        return new RedirectView ( "/empresas" );
 
-@GetMapping("/empresas/{id}")
-    public String actualizarEmpresa(@PathVariable Long id, Model model){
+    }
+
+    @GetMapping("/empresas/{id}")
+    public String actualizarEmpresa (@PathVariable Long id , Model model) {
         Empresa empresaFind = this.se10.getLLamarEmpresas ( id );
-        model.addAttribute ( "empresaFind", empresaFind);
+        model.addAttribute ( "empresaFind" , empresaFind );
         return "actualizarempresa";
-}
+    }
 
 
     @PutMapping("/empresas/{id}")
-        public RedirectView actualizarEmpresa(@PathVariable Long id, Empresa actEmpresa){
-        this.se10.actualizarEmpresa (id, actEmpresa);
-        return new RedirectView("/empresas");
+    public RedirectView actualizarEmpresa (@PathVariable Long id , Empresa actEmpresa) {
+        this.se10.actualizarEmpresa ( id , actEmpresa );
+        return new RedirectView ( "/empresas" );
     }
 
 
     @DeleteMapping("/empresas/{id}")
-    public RedirectView eliminarEmpresa(@PathVariable(value = "id") Long id){
-       this.se10.eliminarEmpresa (id);
-       return new RedirectView ("/empresas");
+    public RedirectView eliminarEmpresa (@PathVariable(value = "id") Long id) {
+        this.se10.eliminarEmpresa ( id );
+        return new RedirectView ( "/empresas" );
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     //editar un registro
@@ -83,10 +69,6 @@ public Empresa nuevaEmpresa(@ModelAttribute Empresa e, Model model){
 //        this.se10.actualizarEmpresa (id, actEmpresa);
 //        return new RedirectView("/empresas");
 //    }
-
-
-
-
 
 
 //
